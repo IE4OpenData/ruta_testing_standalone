@@ -19,7 +19,7 @@
 
 package org.ie4opendata.ruta_testing_standalone.testing.evaluator;
 
-public class PartialMatchCasEvaluatorFacotry implements ICasEvaluatorFactory {
+public class PartialMatchCasEvaluatorFactory implements ICasEvaluatorFactory {
 
   public ICasEvaluator createEvaluator() {
     
