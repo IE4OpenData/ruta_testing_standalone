@@ -17,3 +17,8 @@ Command-line script
 mvn package appassembler:assemble
 
 ./target/appassembler/bin/ruta-evaluate
+
+Full example
+------------
+
+For a full example take a look a the Baseline.md in project octroy: https://github.com/IE4OpenData/Octroy
