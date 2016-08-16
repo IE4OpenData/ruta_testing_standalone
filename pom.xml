@@ -47,4 +47,32 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- to use: mvn package appassembler:assemble -->
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.10</version>
+				<configuration>
+					<configurationDirectory>conf</configurationDirectory>
+					<copyConfigurationDirectory>true</copyConfigurationDirectory>
+					<includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+					<extraJvmArguments></extraJvmArguments>
+					<platforms>
+						<platform>unix</platform>
+						<platform>windows</platform>
+					</platforms>
+					<programs>
+						<program>
+							<mainClass>org.ie4opendata.ruta_testing_standalone.Evaluate</mainClass>
+							<id>ruta-evaluate</id>
+							<commandLineArguments />
+						</program>
+					</programs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -52,19 +52,6 @@ public class Evaluate {
     }
   }
 
-  // private static CAS getEmptyCas(Object descriptor) throws ResourceInitializationException,
-  // InvalidXMLException {
-  // CAS testCas = null;
-  // if (descriptor instanceof AnalysisEngineDescription) {
-  // testCas = CasCreationUtils.createCas((AnalysisEngineDescription) descriptor);
-  // } else if (descriptor instanceof TypeSystemDescription) {
-  // TypeSystemDescription tsDesc = (TypeSystemDescription) descriptor;
-  // tsDesc.resolveImports();
-  // testCas = CasCreationUtils.createCas(tsDesc, null, new FsIndexDescription[0]);
-  // }
-  // return testCas;
-  // }
-
   private static void deserializeCASs(CAS tdCas, TestCasData td, CAS casA, File fileA)
           throws FileNotFoundException, SAXException, IOException {
     if (!fileA.exists()) {
