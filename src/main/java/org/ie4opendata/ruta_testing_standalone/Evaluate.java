@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -156,6 +158,14 @@ public class Evaluate {
 
     public TypeSystemDescription tsd = null;
 
+    private static class FileComparator implements Comparator<File> {
+
+      public int compare(File f0, File f1) {
+        return f0.getAbsolutePath().compareTo(f1.getAbsolutePath());
+      }
+
+    }
+
     public void expand() throws Exception {
       XMLInputSource in = new XMLInputSource(typeSystemDescriptorPath);
       tsd = UIMAFramework.getXMLParser().parseTypeSystemDescription(in);
@@ -166,6 +176,9 @@ public class Evaluate {
       for (File f : new File(goldFolder).listFiles())
         if (f.getName().endsWith(".xmi"))
           goldFiles.add(f);
+
+      Collections.sort(systemFiles, new FileComparator());
+      Collections.sort(goldFiles, new FileComparator());
 
       if (resultFolderName != null)
         resultFolder = new File(resultFolderName);
